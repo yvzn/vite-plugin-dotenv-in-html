@@ -1,0 +1,19 @@
+{
+	"name": "vite-plugin-dotenv-in-html",
+	"version": "0.1.0",
+	"description": "A simple ViteJS plugin to process .env variables in index.html",
+	"main": "index.js",
+	"scripts": {
+		"test": "vitest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/yvzn/vite-plugin-dotenv-in-html.git"
+	},
+	"author": "Yvan Razafindramanana",
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://github.com/yvzn/vite-plugin-dotenv-in-html/issues"
+	},
+	"homepage": "https://github.com/yvzn/vite-plugin-dotenv-in-html#readme"
+}
