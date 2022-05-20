@@ -1,8 +1,32 @@
 # ViteJS plugin: _.env in HTML_
 
-A simple ViteJS plugin to process _.env_ variables in `index.html` (and just that).
+A simple ViteJS plugin to replace _.env_ variables in `index.html`.
 
-_WIP_
+(i.e. `import.meta.env.VITE_` variables).
+
+## Installation
+
+```sh
+npm install --save-dev vite-plugin-dotenv-in-html
+```
+
+## Usage
+
+Update `vite.config.js` to support [Conditional config](https://vitejs.dev/config/#conditional-config)
+
+- (i.e. use the `defineConfig` overload that exports a function)
+
+Then add the following to your `vite.config.js`.
+
+```js
+import dotEnvHTMLPlugin from 'vite-plugin-dotenv-in-html';
+
+export default defineConfig(({ mode }) => {
+	return {
+		plugins: [dotEnvHTMLPlugin(mode)],
+	};
+});
+```
 
 ## License
 
@@ -22,8 +46,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-### Third parties
+## Third parties
 
 This project uses open-source, third party software:
 
 - [ViteJS](https://github.com/vitejs/vite): MIT License, Copyright (c) 2019-present Evan You & Vite Contributors
+- [Vitest](https://github.com/vitest-dev/vitest): MIT License (c) 2021-Present Anthony Fu, Matias Capeletto
+- [Unbuild](https://github.com/unjs/unbuild): MIT License Copyright (c) 2021 Pooya Parsa
