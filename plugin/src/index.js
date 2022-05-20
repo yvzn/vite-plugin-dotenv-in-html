@@ -27,34 +27,28 @@ export default function dotEnvHTMLPlugin(mode) {
 		name: "vite-plugin-dotenv-in-html",
 		transformIndexHtml(html) {
 			const env = loadEnv(mode, process.cwd());
+			const safeKeys = Object.keys(env).filter(shouldTransform);
 			return html.replace(
 				/import\.meta\.env\.([A-Z0-9_]+)/g,
-				replacerFunction(env)
+				replacerFunction(env, safeKeys)
 			);
 		},
 	};
 }
 
-function replacerFunction(env) {
+function replacerFunction(env, safeKeys) {
 	return function (match, $1) {
-		if ($1 in env && shouldTransform($1)) {
-			return env[$1];
-		}
-		return match;
+		return safeKeys.includes($1) ? env[$1] : match;
 	}
 }
 
 function shouldTransform(key) {
-	return isUserVariable(key) || isBuiltinVariable(key);
-}
+	const isBuiltinVariable = ["MODE", "BASE_URL", "PROD", "DEV"].includes(key);
 
-function isUserVariable(key) {
 	// To prevent accidentally leaking env variables to the client,
-	// only variables prefixed with VITE_ are exposed to your Vite-processed code.
+	// only variables prefixed with VITE_ are exposed to Vite-processed code.
 	// https://vitejs.dev/guide/env-and-mode.html#env-files
-	return key.startsWith("VITE_");
-}
+	const isUserVariable = key.startsWith("VITE_");
 
-function isBuiltinVariable(key) {
-	return ["MODE", "BASE_URL", "PROD", "DEV"].includes(key);
+	return isUserVariable || isBuiltinVariable;
 }
