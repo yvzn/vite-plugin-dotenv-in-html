@@ -5,7 +5,7 @@
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+	   http://www.apache.org/licenses/LICENSE-2.0
 
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,9 +29,32 @@ export default function dotEnvHTMLPlugin(mode) {
 			const env = loadEnv(mode, process.cwd());
 			return html.replace(
 				/import\.meta\.env\.([A-Z0-9_]+)/g,
-				(_, key) =>
-					key in env ? env[key] : key
+				replacerFunction(env)
 			);
 		},
 	};
+}
+
+function replacerFunction(env) {
+	return function (match, $1) {
+		if ($1 in env && shouldTransform($1)) {
+			return env[$1];
+		}
+		return match;
+	}
+}
+
+function shouldTransform(key) {
+	return isUserVariable(key) || isBuiltinVariable(key);
+}
+
+function isUserVariable(key) {
+	// To prevent accidentally leaking env variables to the client,
+	// only variables prefixed with VITE_ are exposed to your Vite-processed code.
+	// https://vitejs.dev/guide/env-and-mode.html#env-files
+	return key.startsWith("VITE_");
+}
+
+function isBuiltinVariable(key) {
+	return ["MODE", "BASE_URL", "PROD", "DEV"].includes(key);
 }
