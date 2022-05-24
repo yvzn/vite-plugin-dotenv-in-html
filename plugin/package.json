@@ -19,6 +19,7 @@
 	},
 	"scripts": {
 		"build": "unbuild",
+		"prepare": "npm run build",
 		"test": "vitest watch",
 		"lint": "eslint src/**/*.js"
 	},
