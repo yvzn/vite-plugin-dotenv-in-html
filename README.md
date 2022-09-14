@@ -49,6 +49,11 @@ Only `import.meta.env.VITE_` variables and built-in variables are replaced:
 </body>
 ```
 
+## Inspiration
+
+- https://github.com/lxs24sxl/vite-plugin-html-env
+- https://github.com/vbenjs/vite-plugin-html
+
 ## License
 
 [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)
