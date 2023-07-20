@@ -6,7 +6,7 @@ A simple ViteJS plugin to replace _.env_ variables in `index.html`.
 
 ## Rationale
 
-Although there are many other plugins that achieve the same goal, among other great features, I believe there is some room for a very small and simple plugin, with minimal configuration and footprint.
+A very small and simple plugin, with minimal configuration and footprint. There are many other plugins that achieve the same goal, plus other great features. This is a minimalist implementation.
 
 ## Installation
 
@@ -14,7 +14,7 @@ Although there are many other plugins that achieve the same goal, among other gr
 npm install --save-dev vite-plugin-dotenv-in-html
 ```
 
-## Usage
+## Setup
 
 1. Update `vite.config.js` to support [Conditional config](https://vitejs.dev/.config/#conditional-config): use the `defineConfig` overload that exports a function
 
@@ -30,14 +30,9 @@ export default defineConfig(({ mode }) => {
 });
 ```
 
-## Great alternatives and inspiration
+## Usage
 
--   https://github.com/lxs24sxl/vite-plugin-html-env
--   https://github.com/vbenjs/vite-plugin-html
-
-## Example
-
-In the following, `import.meta.env.VITE_` variables will be replaced with the values set in currently active _.env_ file.
+In the following HTML, `import.meta.env.VITE_` variables will be replaced with the values set in currently active _.env_ file.
 
 ```html
 <html>
@@ -57,6 +52,11 @@ To match [ViteJS's own policy](https://vitejs.dev/guide/env-and-mode.html#env-fi
 
 > To prevent accidentally leaking env variables to the client,
 > only variables prefixed with VITE\_ are exposed to Vite-processed code.
+
+## Inspiration and alternatives
+
+-   https://github.com/lxs24sxl/vite-plugin-html-env
+-   https://github.com/vbenjs/vite-plugin-html
 
 ## License
 
