@@ -33,7 +33,7 @@
 		"eslint": "^8.31.0",
 		"unbuild": "^1.0.2",
 		"vite": "^4.0.3",
-		"vitest": "^0.32.0"
+		"vitest": "^0.34.6"
 	},
 	"peerDependencies": {
 		"vite": "4"
