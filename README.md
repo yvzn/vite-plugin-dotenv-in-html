@@ -1,12 +1,14 @@
 # ViteJS plugin: _.env in HTML_
 
-A simple ViteJS plugin to replace _.env_ variables in `index.html`.
+A ViteJS plugin to replace _.env_ variables in `index.html`.
 
 (i.e. `import.meta.env.VITE_` variables).
 
 ## Rationale
 
-A very small and simple plugin, with minimal configuration and footprint. There are many other plugins that achieve the same goal, plus other great features. This is a minimalist implementation.
+A very small plugin, with minimal configuration and footprint, no dependencies.
+
+Other plugins achieve the same goal, they have great features but are usually bigger.
 
 ## Installation
 
