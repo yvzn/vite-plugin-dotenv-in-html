@@ -4,6 +4,14 @@ A ViteJS plugin to replace _.env_ variables in `index.html`.
 
 (i.e. `import.meta.env.VITE_` variables).
 
+## 🚩 **Obsolete & no longer required** 🚩
+
+ViteJS now supports [replacing _.env_ variables in HTML files](https://vitejs.dev/guide/env-and-mode#html-env-replacement) natively.
+
+This can be achieved using  `%VITE_MY_ENV_VARIABLE%` syntax.
+
+This plugin is no longer required nor maintaned. Users are encouraged to migrate to the latest ViteJS version and syntax.
+
 ## Rationale
 
 A very small plugin, with minimal configuration and footprint, no dependencies.

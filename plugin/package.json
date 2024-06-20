@@ -1,7 +1,8 @@
 {
 	"name": "vite-plugin-dotenv-in-html",
-	"version": "5.0.1",
+	"version": "5.1.0",
 	"description": "A simple ViteJS plugin to replace .env variables in index.html",
+	"deprecated": "ViteJS now supports this feature natively. This plugin is no longer required nor maintaned. Users are encouraged to migrate to the latest ViteJS version and syntax.",
 	"author": "Yvan Razafindramanana",
 	"license": "Apache-2.0",
 	"files": [
@@ -30,7 +31,10 @@
 	},
 	"homepage": "https://github.com/yvzn/vite-plugin-dotenv-in-html#readme",
 	"devDependencies": {
-		"eslint": "^8.31.0",
+		"@eslint/eslintrc": "^3.1.0",
+		"@eslint/js": "^9.5.0",
+		"eslint": "^9.5.0",
+		"globals": "^15.6.0",
 		"unbuild": "^2.0.0",
 		"vite": "^5.0.10",
 		"vitest": "^1.0.4"
